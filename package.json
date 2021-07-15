@@ -1,0 +1,20 @@
+{
+  "name": "se-mexa-quando-a-musica-tocar",
+  "version": "1.0.0",
+  "description": "Projeto que toca uma música esporadicamente pra te lembrar de se mexer um pouco",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LelePG/se-mexa-quando-a-musica-tocar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LelePG/se-mexa-quando-a-musica-tocar/issues"
+  },
+  "homepage": "https://github.com/LelePG/se-mexa-quando-a-musica-tocar#readme"
+}
