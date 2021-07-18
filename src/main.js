@@ -1,5 +1,7 @@
 const prompt = require('prompt-sync')();
 const cron = require('cron');
+const player = require('play-sound')();
+
 
 function menu() {
         while (1) {
@@ -25,15 +27,21 @@ function menu() {
         }
 }
 
+function erroAoTocar(err) {
+        console.log(`O erro ${err} ocorreu.`)
+}
 
+function caminhoDaMusica() {
+        return "./a.mp3"
+}
 
-//Implementar a música
+let minuto = menu()
 
+console.log("Iniciando aplicação!!")
 
- //let minuto = menu()
+let cronJob = cron.job(`0 */${minuto} * * * *`, function () {
+        player.play(caminhoDaMusica(), erroAoTocar);
+        //console.info("se mexe ai");
+});
 
-//  let cronJob = cron.job(`0 */${minuto} * * * *`, function(){
-//      console.info("se mexe ai");
-// }); 
-
-//  cronJob.start();
+cronJob.start();
