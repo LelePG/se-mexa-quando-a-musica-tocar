@@ -1,7 +1,9 @@
 const prompt = require('prompt-sync')();
 const cron = require('cron');
 const player = require('play-sound')();
+const fs = require('fs');
 
+const diretorioMusicas = "../media"
 
 function menu() {
         while (1) {
@@ -32,7 +34,12 @@ function erroAoTocar(err) {
 }
 
 function caminhoDaMusica() {
-        return "./a.mp3"
+        let musicas = fs.readdirSync(diretorioMusicas, { withFileTypes: true })
+                .filter(musica => !musica.isDirectory())
+                .map(musica => `${diretorioMusicas}/${musica.name}`)
+        let indice = Math.trunc(Math.random() * musicas.length)
+
+        return musicas[indice]
 }
 
 let minuto = menu()
@@ -40,8 +47,10 @@ let minuto = menu()
 console.log("Iniciando aplicação!!")
 
 let cronJob = cron.job(`0 */${minuto} * * * *`, function () {
-        player.play(caminhoDaMusica(), erroAoTocar);
+        player.play(caminhoDaMusica(), function(err){
+                if (err) throw err
+              })
         //console.info("se mexe ai");
-});
+})
 
 cronJob.start();
