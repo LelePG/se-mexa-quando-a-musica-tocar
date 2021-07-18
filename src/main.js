@@ -23,19 +23,27 @@ function menu() {
                 let escolha = Number(prompt(""))
 
                 switch (escolha) {
-                        case 1: return 5
+                        case 1: return 15
                         case 2: return 20
                         case 3: return 30
                         case 4: return 40
                         case 5: return 50
                         case 6: return 60
+                        case 7: return 75
+                        case 8: return 90
+                        case 9: return 120
+                        case 10: return 150
                         default: console.log("Opção inválida")
                 }
         }
 }
 
-function erroAoTocar(err) {
-        console.log(`O erro ${err} ocorreu.`)
+function notificar() {
+        notifier.notify({
+                title: "HORA DE SE MEXER!!!",
+                message: "SE MEXE AI PESSOINHA!!"
+              });
+        console.log("Está na hora de se mexer!!")
 }
 
 function caminhoDaMusica() {
@@ -43,23 +51,19 @@ function caminhoDaMusica() {
                 .filter(musica => !musica.isDirectory())
                 .map(musica => `${diretorioMusicas}/${musica.name}`)
         let indice = Math.trunc(Math.random() * musicas.length)
-        notifier.notify({
-                title: "HORA DE SE MEXER!!!",
-                message: "SE MEXE AI PESSOINHA!!"
-              });
+        notificar()
         return musicas[indice]
 }
 
-let minutos = menu()
+let intervalo = menu()
 
 console.log("Iniciando aplicação!!")
 
-setInterval(function () {
+setInterval(() => {
         player.play(caminhoDaMusica(), function(err){
                 if (err) throw err
               })
-        //console.info("se mexe ai");
-}, minutos * 60 * 1000)
+        }, intervalo * 60 * 1000)
 
 
 
