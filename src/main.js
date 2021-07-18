@@ -1,7 +1,9 @@
-const prompt = require('prompt-sync')();
-const cron = require('cron');
-const player = require('play-sound')();
-const fs = require('fs');
+const prompt = require("prompt-sync")();
+const cron = require("cron");
+const player = require("play-sound")();
+const fs = require("fs");
+const notifier = require("node-notifier");
+
 
 const diretorioMusicas = "../media"
 
@@ -15,7 +17,7 @@ function menu() {
                 console.log("5) 50 minutos")
                 console.log("6) 60 minutos")
 
-                let escolha = Number(prompt(''))
+                let escolha = Number(prompt(""))
 
                 switch (escolha) {
                         case 1: return 1
@@ -38,7 +40,10 @@ function caminhoDaMusica() {
                 .filter(musica => !musica.isDirectory())
                 .map(musica => `${diretorioMusicas}/${musica.name}`)
         let indice = Math.trunc(Math.random() * musicas.length)
-
+        notifier.notify({
+                title: "HORA DE SE MEXER!!!",
+                message: "SE MEXE AI PESSOINHA!!"
+              });
         return musicas[indice]
 }
 
@@ -54,3 +59,5 @@ let cronJob = cron.job(`0 */${minuto} * * * *`, function () {
 })
 
 cronJob.start();
+
+
