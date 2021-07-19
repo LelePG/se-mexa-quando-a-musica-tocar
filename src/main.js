@@ -4,7 +4,7 @@ const fs = require("fs");
 const notifier = require("node-notifier");
 
 
-const diretorioMusicas = "../media"
+const diretorioMusicas = "src/../media"
 
 function menu() {
         while (1) {
@@ -23,7 +23,7 @@ function menu() {
                 let escolha = Number(prompt(""))
 
                 switch (escolha) {
-                        case 1: return 15
+                        case 1: return 1
                         case 2: return 20
                         case 3: return 30
                         case 4: return 40
