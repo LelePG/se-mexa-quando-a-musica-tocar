@@ -1,7 +1,8 @@
 # se-mexa-quando-a-musica-tocar
+<img src="imagens/print.png" width = "300px">
 
 ## O que é este projeto?
-Este projeto feito em node js é uma maneira de você se lembrar de se movimentar, mesmo que minimamente, em intervalos regulares durante o dia. No intervalo especificado, uma música tocará e você deve se movimentar enquanto a música estiver tocando. 
+Este projeto feito em node js é uma maneira de você se lembrar de se movimentar, mesmo que minimamente, em intervalos regulares durante o dia. No intervalo especificado, uma música tocará e você deve se movimentar enquanto a música estiver tocando. Uma notificação também é enviada para o usuário quando este deve se mexer.
 
 ## Como utilizar este projeto?
 Para utilizar este projeto você precisa ter o node instalado no computador. Com o node instalado, você deve abrir a pasta raiz do projeto e rodar o comando `npm i` para baixar as dependências da aplicação, e verificar se você tem o um player de audio compatível com a dependência **play-sound** instalado, já que isto é necessário para que a música toque. Você pode ter mais informações sobre como instalar os player compatíveis [clicando aqui](https://thisdavej.com/node-js-playing-sounds-to-provide-notifications/).
